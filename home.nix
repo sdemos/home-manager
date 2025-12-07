@@ -19,13 +19,14 @@
 
   #### Packages ####
 
-  home.packages = [
+  home.packages = with pkgs; [
     # Test package
-    pkgs.hello
+    hello
 
     # Tools
-    pkgs.ripgrep
-    pkgs.htop
+    ripgrep
+    htop
+    nixfmt-rfc-style
   ];
 
   #### Dot Files ####
@@ -103,7 +104,11 @@
     # Oh My Zsh
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "rust" "tmux" ];
+      plugins = [
+        "git"
+        "rust"
+        "tmux"
+      ];
       theme = "demos";
       # A notable behavior here - using the ${} syntax tells nix to take this
       # directory and put it in the nix store, and then reference that here.
