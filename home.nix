@@ -94,6 +94,26 @@
     vimAlias = true;
   };
 
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+
+    # Oh My Zsh
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" "rust" "tmux" ];
+      theme = "demos";
+      # A notable behavior here - using the ${} syntax tells nix to take this
+      # directory and put it in the nix store, and then reference that here.
+      # This is pretty cool! Of course it means I have to run home-manager
+      # switch any time I change anything but that's not so bad, it's not like
+      # my theme changes that often (it's been about 10 years??)
+      custom = "${./ohmyzsh}";
+    };
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
