@@ -25,9 +25,15 @@
     # Tools
     ripgrep
     htop
-    nixfmt-rfc-style
+    nixfmt
     wget
     curl
+    rustup
+    qemu
+    pkg-config
+    cargo-generate
+    cargo-watch
+    trunk
   ];
 
   #### Dot Files ####
@@ -61,6 +67,8 @@
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
+    withRuby = false;
+    withPython3 = false;
   };
 
   programs.zsh = {
